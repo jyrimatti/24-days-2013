@@ -4,14 +4,18 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, distributive, lens, linear, OpenGL
+      , OpenGLRaw, sdl2, stdenv, text, vector
+      }:
       mkDerivation {
         pname = "x02-linear";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [
+          base distributive lens linear OpenGL OpenGLRaw sdl2 text vector
+        ];
         license = stdenv.lib.licenses.mit;
       };
 
