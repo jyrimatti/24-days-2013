@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, stdenv, web-routes-boomerang }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x20-web-routes-boomerang";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ base web-routes-boomerang ];
         license = stdenv.lib.licenses.mit;
       };
 

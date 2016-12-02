@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, async, base, stdenv }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x13-async";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ async base ];
         license = stdenv.lib.licenses.mit;
       };
 

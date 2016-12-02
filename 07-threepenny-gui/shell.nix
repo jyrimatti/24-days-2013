@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, stdenv, threepenny-gui }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x07-threepenny-gui";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ base threepenny-gui ];
         license = stdenv.lib.licenses.mit;
       };
 

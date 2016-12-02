@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, profunctors, stdenv }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x22-profunctors";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ base profunctors ];
         license = stdenv.lib.licenses.mit;
       };
 

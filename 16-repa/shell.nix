@@ -4,14 +4,18 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, repa, repa-algorithms, repa-devil
+      , repa-io, stdenv
+      }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x16-repa";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [
+          base repa repa-algorithms repa-devil repa-io
+        ];
         license = stdenv.lib.licenses.mit;
       };
 

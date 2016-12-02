@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, esqueleto, persistent, stdenv }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x06-persistent-esqueleto";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ base esqueleto persistent ];
         license = stdenv.lib.licenses.mit;
       };
 

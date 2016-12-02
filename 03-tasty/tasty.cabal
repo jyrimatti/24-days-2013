@@ -19,6 +19,14 @@ executable tasty
   main-is:             Main.hs
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.9 && <4.10
+  build-depends:       base >=4.9 && <4.10,
+                       tasty,
+                       tasty-ant-xml,
+                       tasty-hunit,
+                       tasty-golden,
+                       tasty-smallcheck,
+                       tasty-quickcheck,
+                       tasty-hspec,
+                       tasty-th
   hs-source-dirs:      src
   default-language:    Haskell2010

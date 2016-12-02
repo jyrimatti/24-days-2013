@@ -4,14 +4,15 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, hashable, stdenv, unordered-containers
+      }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x17-unordered-containers";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ base hashable unordered-containers ];
         license = stdenv.lib.licenses.mit;
       };
 

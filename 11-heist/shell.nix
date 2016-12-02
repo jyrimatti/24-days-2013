@@ -4,14 +4,15 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, digestive-functors-heist, heist, stdenv
+      }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x11-heist";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ base digestive-functors-heist heist ];
         license = stdenv.lib.licenses.mit;
       };
 

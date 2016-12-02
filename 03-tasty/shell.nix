@@ -4,14 +4,20 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, stdenv, tasty, tasty-ant-xml
+      , tasty-golden, tasty-hspec, tasty-hunit, tasty-quickcheck
+      , tasty-smallcheck, tasty-th
+      }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x03-tasty";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [
+          base tasty tasty-ant-xml tasty-golden tasty-hspec tasty-hunit
+          tasty-quickcheck tasty-smallcheck tasty-th
+        ];
         license = stdenv.lib.licenses.mit;
       };
 

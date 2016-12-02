@@ -4,14 +4,18 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, stdenv, wai-websockets, websockets
+      , websockets-snap
+      }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x19-websockets";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [
+          base wai-websockets websockets websockets-snap
+        ];
         license = stdenv.lib.licenses.mit;
       };
 

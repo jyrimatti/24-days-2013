@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, base, fay, stdenv }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x23-fay";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ base fay ];
         license = stdenv.lib.licenses.mit;
       };
 

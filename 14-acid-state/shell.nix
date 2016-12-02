@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, distributive, linear, stdenv }:
+  f = { mkDerivation, acid-state, base, stdenv }:
       mkDerivation {
-        pname = "x02-linear";
+        pname = "x14-acid-state";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base distributive linear ];
+        executableHaskellDepends = [ acid-state base ];
         license = stdenv.lib.licenses.mit;
       };
 
