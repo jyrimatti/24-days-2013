@@ -5,8 +5,8 @@ let
   inherit (nixpkgs) pkgs;
 
   f = { mkDerivation, base, stdenv, tasty, tasty-ant-xml
-      , tasty-golden, tasty-hspec, tasty-hunit, tasty-quickcheck
-      , tasty-smallcheck, tasty-th
+      , tasty-golden, tasty-hspec, tasty-hunit, tasty-program
+      , tasty-quickcheck, tasty-smallcheck, tasty-th
       }:
       mkDerivation {
         pname = "x03-tasty";
@@ -16,7 +16,7 @@ let
         isExecutable = true;
         executableHaskellDepends = [
           base tasty tasty-ant-xml tasty-golden tasty-hspec tasty-hunit
-          tasty-quickcheck tasty-smallcheck tasty-th
+          tasty-program tasty-quickcheck tasty-smallcheck tasty-th
         ];
         license = stdenv.lib.licenses.mit;
       };

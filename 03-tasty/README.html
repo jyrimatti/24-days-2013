@@ -1,1 +1,24 @@
-TODO
+<p>
+Liitin blogin esimerkkikoodiin mukaan pari testityyppiä:<br/>
+<ol>
+<li>ulkoisen suorituksen paluukoodin tarkistus</li>
+<li>HSpec-testi</li>
+</ol>
+</p>
+
+<p>
+HSpec aiheutti päänvaivaa, sillä 'testSpec'-funktio palautti testikuvauksen IO:n sisällä (miksi?).<br />
+Jouduin käyttämään sequence-magiikkaa ja fmap:ia (meni tässä nätimmin <$> -syntaksilla) jotta sain "koko paskan" muuntumaan IO:ksi.
+</p>
+
+<p>
+Eli siis:<br />
+Jostain syvältä (Hspec-variaatio) tuli mukaan <code>[IO a]</code>. Tämän vuoksi muutkin testiryhmät piti kääriä jonkin monadin sisään, eli sanoa <code>return</code>.<br />
+Tämän voi muuntaa muotoon <code>IO [a]</code> käyttämällä <code>sequence</code> joka siis siirtää minkä tahansa funktorin "kerrosta ulospäin".<br />
+Funktio tyyppiä <code>[a] -> a</code> voidaan muuntaa muotoon <code>IO [a] -> IO a</code> ihan perus funktorin <code>fmap</code>:lla (jolle toinen nimi on infix-operaattori <code>&lt;$&gt;</code>).<br />
+Lopuksi piti vielä sanoa <code>join</code> koska varsinainen testiajo muuttaa testikuvaukset IO:ksi, ja tämän vuoksi tuli <code>IO (IO ()))</code>.
+</p>
+
+<p>
+Olipas hankalaa. Vai teinkö vain jotakin väärin?
+</p>

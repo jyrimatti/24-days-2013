@@ -27,6 +27,8 @@ executable tasty
                        tasty-smallcheck,
                        tasty-quickcheck,
                        tasty-hspec,
-                       tasty-th
+                       tasty-th,
+                       tasty-program
   hs-source-dirs:      src
   default-language:    Haskell2010
+  ghc-options:         -Wall
