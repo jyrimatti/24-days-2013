@@ -1,20 +1,20 @@
 Blogin esimerkki pohjautui taas kovin vanhaan kirjastoon, joten kesti jonkinaikaa ennenkuin sain muokattua niin että menee kääntäjästä läpi.
-
+<p>
 En ymmärrä miten nämä toimivat, mutta jotakin tällaista on tekeillä:
-
-Ongelma on, että "effectien" yhdistely on hankalaa.
+<p>
+Ongelma on, että "effectien" yhdistely on hankalaa.<br />
 Effectit on luonteva ilmaista monadisina funktioina, mutta monadit yhdistyvät (compose) ainoastaan "sisäisesti" eli funktiokompositiolla. Eivät "päällekkäin", eli eri monadit eivät yhdisty keskenään toisin kuin esim applikatiivit.
-
-Yksi ratkaisu ongelmaan on monad-transformerit, jotka voi toteuttaa ainakin kahdella tapaa: mtl ja transformers -kirjastot. Näissä luodaan halutuista monadeista uusi monadi, joka sisältää vanhojen toiminnallisuuden. Toimii, muttei kaikissa tapauksissa, ja on kovin hankalaa.
-
-Extensible effectit ovat toinen tapa yhdistää effectejä. Niiden syvin ajatus on ehkä (tai sitten ei ole) jokin tällainen:
-Functoreita voidaan yhdistellä uusiksi funktoreiksi. Määrittämällä effectit functoreina, voitaisiin niitä kasata kokonaisuuksiksi.
-Rakennetusta kokonaisuudesta voidaan myös poistaa functoreita yksi kerrallaan, jolloin rakenne voidaan siis purkaa yksitellen suorittamalla effectit pois niin että vain puhdas arvo jää jäljelle.
-Samalla varmistuu että kaikki effectit tulee käsiteltyä, sillä muuten ei päästä puhtaaseen arvoon käsiksi.
+<p>
+Yksi ratkaisu ongelmaan on monad-transformerit, jotka voi toteuttaa ainakin kahdella tapaa: mtl ja transformers -kirjastot. Näissä luodaan halutuista monadeista uusi monadi, joka sisältää vanhojen toiminnallisuuden.<br />Toimii, muttei kaikissa tapauksissa, ja on kovin hankalaa.
+<p>
+Extensible effectit ovat toinen tapa yhdistää effectejä. Niiden syvin ajatus on ehkä (tai sitten ei ole) jokin tällainen:<br />
+Functoreita voidaan yhdistellä uusiksi funktoreiksi. Määrittämällä effectit functoreina, voitaisiin niitä kasata kokonaisuuksiksi.<br />
+Rakennetusta kokonaisuudesta voidaan myös poistaa functoreita yksi kerrallaan, jolloin rakenne voidaan siis purkaa yksitellen suorittamalla effectit pois niin että vain puhdas arvo jää jäljelle.<br />
+Samalla varmistuu että kaikki effectit tulee käsiteltyä, sillä muuten ei päästä puhtaaseen arvoon käsiksi.<br />
 Tämä voidaan siis hoitaa tyyppijärjestelmässä, mikä onkin koko homman pointti.
-
+<p>
 Luulisin että käsitteellisesti tähän liittyy jotenkin Free/Freer Monads ja algebran ("rajapinnan") rakentaminen tyyppijärjestelmään kompositiolla. Tuntuisi siltä että siinä tehdään hieman samaa asiaa, myös yhdistelemällä functoreita kokonaisuuksiksi.
-
+<p>
 Jos ymmärtäisin continuaatiot niin tämä olisi ehkä helpompaa, sillä jokin callcc tai vastaava näkyy effectien yksitellen purkamisessa.
-
+<p>
 Tämä (eli käsitteiden rakentaminen kompositiolla ja niiden purkaminen pois pala kerrallaan Functoreita hyödyntämällä) haisee kilometrin päähän todella hienolta ja tärkeältä asialta. Vielä kun ymmärtäisi mistä se haju tulee.
