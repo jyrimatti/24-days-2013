@@ -4,14 +4,15 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, scotty, stdenv, warp }:
+  f = { mkDerivation, aeson, base, http-types, scotty, stdenv, warp
+      }:
       mkDerivation {
         pname = "x05-scotty";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base scotty warp ];
+        executableHaskellDepends = [ aeson base http-types scotty warp ];
         license = stdenv.lib.licenses.mit;
       };
 
