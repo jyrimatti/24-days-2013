@@ -4,14 +4,20 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, esqueleto, persistent, stdenv }:
+  f = { mkDerivation, base, esqueleto, monad-logger, persistent
+      , persistent-sqlite, persistent-template, stdenv, text, time
+      , transformers
+      }:
       mkDerivation {
         pname = "x06-persistent-esqueleto";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base esqueleto persistent ];
+        executableHaskellDepends = [
+          base esqueleto monad-logger persistent persistent-sqlite
+          persistent-template text time transformers
+        ];
         license = stdenv.lib.licenses.mit;
       };
 

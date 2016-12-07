@@ -1,1 +1,13 @@
-TODO
+Koodina blogin esimerkki laitettuna kääntymään.
+<p>
+Muuten selkeää, mutta minulle on vaikea hahmottaa "sortedNames >>= mapM_ (liftIO . print)" eli tarve sanoa näin vaikeasti, vaikka ymmärränkin kyllä mitä tuossa tapahtuu.
+<p>
+Persistent-esqueleto-jako on minusta tuntunut potentiaaliselta oikealta ratkaisulta "ORM-ongelmaan".
+<p>
+Persistent huolehtii taulujen mäppäyksestä koodin käsitteisiin sekä perus-inserteistä ja rivien hakemisesta, muttei yritäkään toimia kyselykielenä.
+<p>
+Esqueleto rakentuu persistentin päälle ja tarjoaa kyselykielen, muttei yritäkään rakentaa mitään omaa vaan tarjoaa vain staattisesti tyypitetyn ja laajennettavan SQL:n. Suurin miinus ja samalla plussa on tyyppi-inferenssi, eli ei tarvitse kirjoittaa edes mistä taulusta kysellään, sillä kääntäjä päättelee sen tyypeistä. Miinus tämä on siksi, että jos koodi ei mene kääntäjästä läpi on koooooovin vaikea selvittää mikä siinä on pielessä.
+<p>
+Persistentissä käytetään template-haskellia mikä hieman risoo ainakin itseäni. Lisäksi schema-migraatiot tunnetusti toimivat vain perustapauksissa, mutta toisaalta, miksei niitä silti voisi liittää kirjastoon mukaan.
+<p>
+Saattaa myös olla ettei persistent toimi nykyisellään kaikkien mahdollisten kantaschemojen kanssa (esim bloginkin mainitsemat pääavaimet). Olisi kiva tietää toimiiko, ja jos ei niin olisiko mahdollista saada toimimaan.
