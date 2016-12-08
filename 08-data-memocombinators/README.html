@@ -1,1 +1,17 @@
-TODO
+Fibonaccin laskentaa viidellä tavalla, mikäs sen hauskempaa!<br />
+Huomaa, että kommentoin Int-tyypit pois jolloin Haskell inferoi äärettömän suuren kokonaislukutyypin. Tyyppejä ei aina kannata turhaan kirjoitella.
+<p>
+fib:<br />
+Naiivi toteutus, todella hidas.
+<p>
+fibLucky:<br />
+Perustoteutus, jossa kääntäjä osaa hoitaa memoizen sattumalta.
+<p>
+fibUnlucky:<br />
+Blogin stack-overflow-linkin mukaan tämän pitäisi olla hidas, mutta on kuitenkin nopea. Ilmeisesti tuore GHC osaa optimoida paremmin kuin vanhemmat versiot, ja tähänkin saadaan ilmainen memoize!
+<p>
+fibFast:<br />
+Eksplisiittinen memoize, eli tietysti nopea.
+<p>
+fibm:<br />
+Eksplisiittinen memoize monadeilla, koska, perhana, pitäähän monadeja tunkea joka paikkaan!

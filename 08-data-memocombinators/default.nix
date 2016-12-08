@@ -1,13 +1,11 @@
 { nixpkgs ? import <nixpkgs> {}, compiler ? "default" }:
 
-with import <nixpkgs/pkgs/development/haskell-modules/lib.nix> { pkgs = nixpkgs; };
-
 let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, data-memocombinators, monad-memo, timeit
-      , stdenv
+  f = { mkDerivation, base, data-memocombinators, monad-memo
+      , stdenv, timeit
       }:
       mkDerivation {
         pname = "x08-data-memocombinators";
@@ -16,8 +14,7 @@ let
         isLibrary = false;
         isExecutable = true;
         executableHaskellDepends = [
-          # testit rikki joten skipataan ne
-          base data-memocombinators (dontCheck monad-memo) timeit
+          base data-memocombinators monad-memo timeit
         ];
         license = stdenv.lib.licenses.mit;
       };
