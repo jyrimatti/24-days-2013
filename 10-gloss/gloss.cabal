@@ -20,6 +20,8 @@ executable gloss
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.9 && <4.10,
-                       gloss
+                       gloss,
+                       lens,
+                       random
   hs-source-dirs:      src
   default-language:    Haskell2010

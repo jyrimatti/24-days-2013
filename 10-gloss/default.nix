@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, gloss, stdenv }:
+  f = { mkDerivation, base, gloss, lens, random, stdenv }:
       mkDerivation {
         pname = "x10-gloss";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base gloss ];
+        executableHaskellDepends = [ base gloss lens random ];
         license = stdenv.lib.licenses.mit;
       };
 
