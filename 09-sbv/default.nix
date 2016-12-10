@@ -4,14 +4,14 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, sbv, stdenv }:
+  f = { mkDerivation, base, sbv, stdenv, z3 }:
       mkDerivation {
         pname = "x09-sbv";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
         isExecutable = true;
-        executableHaskellDepends = [ base sbv ];
+        executableHaskellDepends = [ base sbv z3 ];
         license = stdenv.lib.licenses.mit;
       };
 
