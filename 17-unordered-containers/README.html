@@ -1,1 +1,11 @@
-TODO
+Javassa on se ongelma että voit laittaa mitä tahansa objekteja joko järjestettyihin collectioneihin (SortedSet jne) tai ei-järjestettyihin (HashSet jne) sen kummemmin miettimättä asiaa. Aikuisten-oikeasti asioita pitäisi kuitenkin miettiä:
+<p>
+Javassa järjestettyjen collectioneiden tapauksessa pitää huolehtia että comparable-rajapinnan toteutus on konsistentti equalsin kanssa, ja ei-järjestettyjen tapauksessa että hashcode on konsistentti equalsin kanssa.
+<p>
+Haskell tapansa mukaan ei salli asioiden laittamista containereihin ellei niille toteuta (tai käytännössä anna kääntäjän toteuttaa...) sopivia tyyppiluokkainstansseja. Järjestettyjen tapauksessa pitää toteuttaa Ord jolloin koodaaja joutuu ottamaan kantaa järjestykseen, ja ei-järjestettyjen tapauksessa Hashable jolloin joutuu ottamaan kantaa hash-funktioon.
+<p>
+Tietorakennekohtaisesti luotu hash-funktio on myös luultavasti parempi kuin Javan oletuksena muistiosoitteeseen perustuva, tosin en kaivellut mitään statistiikkaa.
+<p>
+Ehkä tärkeintä, että sekä järjestettyjen että ei-järjestettyjen containerien käyttäminen on kuitenkin aivan yhtä helppoa kuin Javassa näistä rajoituksista huolimatta.
+<p>
+Koodina blogin esimerkki.
