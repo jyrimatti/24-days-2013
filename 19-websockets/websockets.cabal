@@ -22,6 +22,8 @@ executable websockets
   build-depends:       base >=4.9 && <4.10,
                        websockets,
                        wai-websockets,
-                       websockets-snap
+                       websockets-snap,
+                       bytestring,
+                       text
   hs-source-dirs:      src
   default-language:    Haskell2010
