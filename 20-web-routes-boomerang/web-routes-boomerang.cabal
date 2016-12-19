@@ -20,6 +20,9 @@ executable web-routes-boomerang
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.9 && <4.10,
-                       web-routes-boomerang
+                       web-routes-boomerang,
+                       boomerang,
+                       web-routes,
+                       text
   hs-source-dirs:      src
   default-language:    Haskell2010
